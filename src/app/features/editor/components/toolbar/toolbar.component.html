@@ -1,0 +1,4 @@
+<StackLayout orientation="horizontal" class="toolbar">
+    <Button text="Save" (tap)="save.emit()" [isEnabled]="hasImage"></Button>
+    <Button text="Share" (tap)="share.emit()" [isEnabled]="hasImage"></Button>
+</StackLayout>

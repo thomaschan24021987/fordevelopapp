@@ -1,0 +1,42 @@
+<GridLayout rows="*" columns="auto, *">
+    <!-- Left sidebar with controls -->
+    <ScrollView row="0" col="0" class="sidebar">
+        <StackLayout>
+            <app-hairstyle-list
+                [hairstyles]="hairstyles$ | async"
+                [selectedHairstyleId]="selectedHairstyle?.id"
+                (hairstyleSelected)="onHairstyleSelect($event)">
+            </app-hairstyle-list>
+
+            <app-color-picker
+                [colors]="hairColors$ | async"
+                [selectedColor]="selectedColor?.value"
+                (colorSelected)="onColorSelect($event)">
+            </app-color-picker>
+
+            <app-image-controls
+                [brightness]="brightness"
+                [size]="hairSize"
+                (brightnessChange)="onBrightnessChange($event)"
+                (sizeChange)="onSizeChange($event)">
+            </app-image-controls>
+        </StackLayout>
+    </ScrollView>
+
+    <!-- Right side with photo preview -->
+    <GridLayout row="0" col="1" rows="*, auto">
+        <app-photo-preview
+            row="0"
+            [image]="currentImage"
+            (takePhoto)="takePhoto()"
+            (pickPhoto)="pickPhoto()">
+        </app-photo-preview>
+
+        <app-toolbar
+            row="1"
+            [hasImage]="!!currentImage"
+            (save)="savePhoto()"
+            (share)="sharePhoto()">
+        </app-toolbar>
+    </GridLayout>
+</GridLayout>

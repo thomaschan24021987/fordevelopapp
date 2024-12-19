@@ -1,0 +1,58 @@
+<GridLayout rows="*" columns="auto, *">
+    <!-- Left sidebar with hairstyles -->
+    <ScrollView row="0" col="0" class="sidebar">
+        <StackLayout>
+            <Label text="Hairstyles" class="section-title"></Label>
+            <WrapLayout>
+                <Image *ngFor="let style of hairstyles; let i = index"
+                    [src]="style.thumbnail"
+                    (tap)="applyHairstyle(i)"
+                    [class.selected]="selectedHairstyle === i">
+                </Image>
+            </WrapLayout>
+
+            <Label text="Hair Color" class="section-title"></Label>
+            <WrapLayout>
+                <Button *ngFor="let color of hairColors"
+                    [text]="color"
+                    (tap)="selectedColor = color; updatePhoto()"
+                    [class.selected]="selectedColor === color">
+                </Button>
+            </WrapLayout>
+
+            <Label text="Hair Size" class="section-title"></Label>
+            <Slider [(ngModel)]="hairSize" 
+                (valueChange)="updatePhoto()"
+                minValue="50" maxValue="150">
+            </Slider>
+
+            <Label text="Brightness" class="section-title"></Label>
+            <Slider [(ngModel)]="brightness"
+                (valueChange)="updatePhoto()"
+                minValue="0" maxValue="200">
+            </Slider>
+        </StackLayout>
+    </ScrollView>
+
+    <!-- Right side with photo preview -->
+    <GridLayout row="0" col="1" rows="auto, *, auto">
+        <!-- Top toolbar -->
+        <StackLayout row="0" orientation="horizontal" class="toolbar">
+            <Button text="Upload" (tap)="pickPhoto()"></Button>
+            <Button text="Take Photo" (tap)="takePhoto()"></Button>
+            <Button text="Save" (tap)="savePhoto()"></Button>
+            <Button text="Share" (tap)="sharePhoto()"></Button>
+        </StackLayout>
+
+        <!-- Photo preview -->
+        <Image row="1" [src]="currentImage" class="preview-image"
+            *ngIf="currentImage; else uploadPrompt">
+        </Image>
+        <ng-template #uploadPrompt>
+            <StackLayout row="1" class="upload-prompt">
+                <Label text="Upload or take a photo to start"></Label>
+                <Button text="Choose Photo" (tap)="pickPhoto()"></Button>
+            </StackLayout>
+        </ng-template>
+    </GridLayout>
+</GridLayout>

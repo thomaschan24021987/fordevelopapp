@@ -1,0 +1,20 @@
+<StackLayout class="page">
+    <Image src="~/assets/logo.png" class="logo"></Image>
+    <Label text="Hairstyles 2025" class="title"></Label>
+    
+    <StackLayout class="form">
+        <TextField [(ngModel)]="email" hint="Email" keyboardType="email"></TextField>
+        <TextField [(ngModel)]="password" hint="Password" secure="true"></TextField>
+        
+        <Button text="Login" (tap)="login()" class="btn btn-primary"></Button>
+        <Button text="Sign Up" [nsRouterLink]="['/signup']" class="btn btn-secondary"></Button>
+        <Button text="Forgot Password" [nsRouterLink]="['/forgot-password']" class="btn btn-outline"></Button>
+        
+        <StackLayout class="social-login">
+            <Button text="Continue with Google" (tap)="loginWithGoogle()" class="btn-google"></Button>
+            <Button text="Continue with Facebook" (tap)="loginWithFacebook()" class="btn-facebook"></Button>
+        </StackLayout>
+        
+        <Button text="Skip Login" (tap)="skip()" class="btn-skip"></Button>
+    </StackLayout>
+</StackLayout>

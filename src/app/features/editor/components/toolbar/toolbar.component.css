@@ -1,0 +1,9 @@
+.toolbar {
+    padding: 10;
+    background-color: #f5f5f5;
+}
+
+Button {
+    margin: 5;
+    min-width: 100;
+}

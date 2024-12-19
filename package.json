@@ -1,0 +1,48 @@
+{
+  "name": "hairstyles-2025",
+  "version": "1.0.0",
+  "description": "Virtual hairstyle try-on app",
+  "main": "src/main.ts",
+  "scripts": {
+    "start": "ns run android --no-hmr",
+    "android": "ns run android --no-hmr",
+    "ios": "ns run ios --no-hmr",
+    "preview": "ns preview",
+    "clean": "ns clean",
+    "build": "ns build",
+    "lint": "eslint \"src/**/*.ts\""
+  },
+  "dependencies": {
+    "@nativescript/core": "8.5.0",
+    "@nativescript/angular": "15.0.0",
+    "@nativescript/camera": "5.0.0",
+    "@nativescript/social-share": "2.1.0",
+    "@nativescript/theme": "3.0.2",
+    "@angular/core": "15.0.0",
+    "@angular/common": "15.0.0",
+    "@angular/forms": "15.0.0",
+    "@angular/router": "15.0.0",
+    "@nativescript/firebase": "13.0.0",
+    "@nativescript/imagepicker": "5.0.0",
+    "@tensorflow/tfjs": "4.11.0",
+    "@tensorflow-models/face-landmarks-detection": "1.0.5",
+    "rxjs": "7.5.0",
+    "zone.js": "0.13.0"
+  },
+  "devDependencies": {
+    "@nativescript/android": "8.5.0",
+    "@nativescript/ios": "8.5.0",
+    "@nativescript/types": "8.5.0",
+    "@nativescript/webpack": "5.0.18",
+    "@typescript-eslint/eslint-plugin": "5.59.0",
+    "@typescript-eslint/parser": "5.59.0",
+    "eslint": "8.38.0",
+    "typescript": "5.0.0",
+    "@nativescript/stackblitz": "latest"
+  },
+  "private": true,
+  "nativescript": {
+    "id": "com.hairstyles2025.app",
+    "templateVersion": "v8"
+  }
+}

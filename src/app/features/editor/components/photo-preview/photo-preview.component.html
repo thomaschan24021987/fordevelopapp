@@ -1,0 +1,12 @@
+<GridLayout rows="*, auto">
+    <Image *ngIf="image" [src]="image" row="0" stretch="aspectFit"></Image>
+    
+    <StackLayout *ngIf="!image" row="0" class="empty-state">
+        <Label text="Take or choose a photo to start" class="empty-state-text"></Label>
+    </StackLayout>
+    
+    <GridLayout row="1" columns="*, *" class="action-buttons">
+        <Button col="0" text="Take Photo" (tap)="takePhoto.emit()" class="btn btn-primary"></Button>
+        <Button col="1" text="Choose Photo" (tap)="pickPhoto.emit()" class="btn btn-secondary"></Button>
+    </GridLayout>
+</GridLayout>
